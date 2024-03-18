@@ -1,18 +1,47 @@
 <?php
-    $name = "James";
+    class car{
+        public $color;
+        public $model;
+        public function __construct($color, $model) {
+            $this->color = $color;
+            $this->model = $model;
+        }
+    }
+
+    $myCar = new car("red","Honda");
+
+    foreach ($myCar as $x => $y) {
+        echo "$x: $y <br>";
+      }
+
+
+
+      
+    $total = null;
+    $price = 4.99;
+
+    if(isset($_POST['submit'])){
+        $quantity = isset($_POST['quantity']) ? intval($_POST['quantity']):0;
+
+        $total = $price * $quantity;
+        echo("The total bill is \${$total} <br>");
+    }
     
+
 ?>
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Still Learning</title>
+    <title>PHP Example</title>
 </head>
 <body>
-    <h2>PLEASE CLICK SUBSCRIBE BUTTON</h2>
-    <form action="" method="Post"><button type="submit" name="btn">subscribe</button></form>
-    
+    <form action="testPhp.php" method="POST">
+        <label for="quantity">Enter Quantity: </label>
+        <input type="number" name="quantity" id="quantity">
+        <input type="submit" name="submit">
+    </form>
 </body>
-</html> -->
+</html>
